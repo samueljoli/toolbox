@@ -1,1 +1,71 @@
 #!/bin/sh
+
+log () {
+  local fmt="$1"; shift
+
+  # shellcheck disable=SC2059
+  printf "\\n$fmt\\n" "$@"
+}
+
+# Install Homebrew if not already installed
+if ! command -v brew >/dev/null; then
+    log "Installing Homebrew"
+else # remove this line and below
+    log "Homebrew installed"
+fi
+
+# May not need this
+if brew list | grep -Fq brew-cask; then
+  log "Uninstalling old Homebrew-Cask ..."
+  brew uninstall --force brew-cask
+fi
+
+ log "Updating Homebrew formulae"
+
+ # brew update --force
+
+ # Begin installing dependencies
+
+ # Unix tools
+ if ! command -v git; then
+     log "Installing Git"
+     brew install git
+ fi
+
+ if ! command -v openssl; then
+     log "Installing openssl"
+     brew install openssl
+ fi
+
+ if ! command -v chezmoi; then
+     log "Installing chezmoi"
+     brew install chezmoi
+     log "Pulling down dotfiles from Github..."
+     sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply Samueljoli
+ fi
+
+ if ! command -v docker; then
+     log "Installing docker for mac"
+     brew cask install docker
+ fi
+
+ if ! command -v terraform; then
+     log "Installing terraform"
+     brew tap hashicorp/tap; brew install hashicorp/tap/terraform
+ fi
+
+ # databases
+ if ! command -v postgres; then
+     log "Installing postgres"
+     brew install postgres
+ fi
+
+ # languages
+ if command -v node; then
+    log "Installing NVM & Node"
+    export NVM_DIR="$HOME/.nvm" && (
+        git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
+        cd "$NVM_DIR"
+        git checkout `git describe --abbrev=0 --tags --match "v[0-9]*" $(git rev-list --tags --max-count=1)`
+    ) && \. "$NVM_DIR/nvm.sh"
+ fi
