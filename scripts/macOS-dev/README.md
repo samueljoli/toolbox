@@ -20,7 +20,7 @@ macOS tools
 
 Unix tools
 + Git
-+ OpenSSL ( but why )
++ OpenSSL
 + Chezmoi
     - Will also pull down and setup [dotfiles](https://github.com/Samueljoli/dotfiles)
 + Docker
