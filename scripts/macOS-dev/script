@@ -33,6 +33,10 @@ fi
      brew install --cask iterm2
  fi
 
+ if [ ! -d "$HOME/.oh-my-zsh/" ]; then
+     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+ fi
+
  if ! command -v git; then
      log "Installing Git"
      brew install git
