@@ -19,6 +19,7 @@ macOS tools
 + Homebrew
 
 Unix tools
++ iterm2
 + Git
 + OpenSSL
 + Chezmoi

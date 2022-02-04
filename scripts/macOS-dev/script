@@ -27,6 +27,10 @@ fi
  # Begin installing dependencies
 
  # Unix tools
+ if ! [ $(mdfind "kMDItemCFBundleIdentifier == com.googlecode.iterm2") ]; then
+     brew install --cask iterm2
+ fi
+
  if ! command -v git; then
      log "Installing Git"
      brew install git
@@ -61,7 +65,7 @@ fi
  fi
 
  # languages
- if command -v node; then
+ if ! command -v node; then
     log "Installing NVM & Node"
     export NVM_DIR="$HOME/.nvm" && (
         git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
