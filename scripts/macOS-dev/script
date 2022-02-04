@@ -60,7 +60,6 @@ fi
 
  if ! command -v chezmoi; then
      log "Installing chezmoi"
-     brew install chezmoi
      log "Pulling down dotfiles from Github..."
      sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply Samueljoli
  fi
