@@ -10,8 +10,7 @@ log () {
 # Install Homebrew if not already installed
 if ! command -v brew >/dev/null; then
     log "Installing Homebrew"
-else # remove this line and below
-    log "Homebrew installed"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 fi
 
 # May not need this
