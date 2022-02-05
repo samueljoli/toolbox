@@ -90,5 +90,5 @@ fi
     ) && \. "$NVM_DIR/nvm.sh"
 
     # Relies on nvm being added to PATH which is handled on dotfile install
-    nvm install node
+    nvm install --lts
  fi
