@@ -92,3 +92,8 @@ fi
     # Relies on nvm being added to PATH which is handled on dotfile install
     nvm install --lts
  fi
+
+ # toys
+ if ! command -v bat; then
+     log "Installing Bat"
+     brew install bat fi
