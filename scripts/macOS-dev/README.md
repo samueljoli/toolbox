@@ -27,6 +27,8 @@ Unix tools
 + Docker
 + Docker for mac
 + Terraform
++ [bat](https://github.com/sharkdp/bat)
++ the_silver_searcher
 
 Databases
 + Postgres
