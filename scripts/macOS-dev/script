@@ -97,3 +97,7 @@ fi
  if ! command -v bat; then
      log "Installing Bat"
      brew install bat fi
+
+ if ! command -v ag; then
+     log "Installing the_silver_searcher"
+     brew install the_silver_searcher fi
