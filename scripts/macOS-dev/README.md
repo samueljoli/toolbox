@@ -19,7 +19,7 @@ macOS tools
 + Homebrew
 
 Unix tools
-+ iterm2
++ [kitty](https://sw.kovidgoyal.net/kitty/)
 + Git
 + OpenSSL
 + Chezmoi
@@ -38,11 +38,4 @@ Languages
 
 
 ## Post install manual
-+ Install iterm2 Gruvbox [theme](https://github.com/samueljoli/gruvbox-zsh) and follow instructions.
 + Install Roboto Font in this directory
-+ Update Text profiles in iTerm2 so that glyphs work
-+ Update cursor color to `a8a521`
-
---------- 
-
-> Inspired by [laptop](https://github.com/thoughtbot/laptop)

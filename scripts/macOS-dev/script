@@ -40,10 +40,6 @@ fi
  # Begin installing dependencies
 
  # Unix tools
- if ! [ $(mdfind "kMDItemCFBundleIdentifier == com.googlecode.iterm2") ]; then
-     brew install --cask iterm2
- fi
-
  if [ ! -d "$HOME/.oh-my-zsh/" ]; then
      sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
  fi
@@ -101,3 +97,7 @@ fi
  if ! command -v ag; then
      log "Installing the_silver_searcher"
      brew install the_silver_searcher fi
+
+ if ! command -v kitty; then
+     log "Installing Kitty"
+     curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
