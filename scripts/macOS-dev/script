@@ -29,55 +29,55 @@ fi
 
 # May not need this
 if brew list | grep -Fq brew-cask; then
-  log "Uninstalling old Homebrew-Cask ..."
-  brew uninstall --force brew-cask
+    log "Uninstalling old Homebrew-Cask ..."
+    brew uninstall --force brew-cask
 fi
 
- log "Updating Homebrew formulae"
+log "Updating Homebrew formulae"
 
  # brew update --force
 
  # Begin installing dependencies
 
  # Unix tools
- if [ ! -d "$HOME/.oh-my-zsh/" ]; then
-     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
- fi
+if [ ! -d "$HOME/.oh-my-zsh/" ]; then
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
 
- if ! command -v git; then
+if ! command -v git; then
      log "Installing Git"
      brew install git
- fi
+fi
 
- if ! command -v openssl; then
+if ! command -v openssl; then
      log "Installing openssl"
      brew install openssl
- fi
+fi
 
- if ! command -v chezmoi; then
+if ! command -v chezmoi; then
      log "Installing chezmoi"
      log "Pulling down dotfiles from Github..."
      sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply Samueljoli
- fi
+fi
 
- if ! command -v docker; then
+if ! command -v docker; then
      log "Installing docker for mac"
      brew install docker
- fi
+fi
 
- if ! command -v terraform; then
+if ! command -v terraform; then
      log "Installing terraform"
      brew tap hashicorp/tap; brew install hashicorp/tap/terraform
- fi
+fi
 
- # databases
- if ! command -v postgres; then
+# databases
+if ! command -v postgres; then
      log "Installing postgres"
      brew install postgres
- fi
+fi
 
- # languages
- if ! command -v node; then
+# languages
+if ! command -v node; then
     log "Installing NVM & Node"
     export NVM_DIR="$HOME/.nvm" && (
         git clone https://github.com/nvm-sh/nvm.git "$NVM_DIR"
@@ -87,17 +87,27 @@ fi
 
     # Relies on nvm being added to PATH which is handled on dotfile install
     nvm install --lts
- fi
+fi
 
- # toys
- if ! command -v bat; then
+# toys
+if ! command -v bat; then
      log "Installing Bat"
-     brew install bat fi
+     brew install bat
+fi
 
- if ! command -v ag; then
+if ! command -v ag; then
      log "Installing the_silver_searcher"
-     brew install the_silver_searcher fi
+     brew install the_silver_searcher
+fi
 
- if ! command -v kitty; then
+if ! command -v kitty; then
      log "Installing Kitty"
      curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
+fi
+
+if open -Ra "Raycast" ; then
+    log "Raycast is installed on this maching. Skipping step"
+else
+     log "Installing Raycast"
+     brew install --cask raycast
+fi
