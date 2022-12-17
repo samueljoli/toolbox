@@ -8,7 +8,7 @@ log () {
 }
 
 # OS architecture
-UNAME_MACHINE="$(/usr/bin/uname -m)"
+UNAME_MACHINE="$(uname -m)"
 
 # Install Homebrew if not already installed
 if ! command -v brew >/dev/null; then
@@ -111,3 +111,9 @@ else
      log "Installing Raycast"
      brew install --cask raycast
 fi
+
+log "Saving post install document to Desktop"
+
+curl --remote-name https://raw.githubusercontent.com/samueljoli/toolbox/main/scripts/macOS-dev/post_install.txt
+
+mv ./post_install.txt ~/Desktop

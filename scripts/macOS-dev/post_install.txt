@@ -1,0 +1,5 @@
+RAYCAST
+1. Navigate: system settings > keyboard shortcuts > Spotlight
+2. Uncheck Show Spotlight Search
+3. Open RAYCAST
+4. Command + "," to open preferences and set Raycast Hotkey to Command + space_bar
