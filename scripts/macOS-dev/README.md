@@ -6,7 +6,7 @@ A script to set up target macOS machine for web development.
 In a directory designated for storing scripts run:
 
 ```bash
-curl --remote-name https://raw.githubusercontent.com/samueljoli/toolbox/main/scripts/macOS-dev/script
+curl --remote-name https://raw.githubusercontent.com/samueljoli/toolbox/main/scripts/macOS-dev/script.sh
 ```
 
 ## Run
