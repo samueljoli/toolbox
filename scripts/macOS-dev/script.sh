@@ -35,14 +35,9 @@ fi
 
 log "Updating Homebrew formulae"
 
- # brew update --force
+# brew update --force
 
- # Begin installing dependencies
-
- # Unix tools
-if [ ! -d "$HOME/.oh-my-zsh/" ]; then
-    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-fi
+# Begin installing dependencies
 
 if ! command -v git; then
      log "Installing Git"
@@ -56,6 +51,8 @@ fi
 
 if ! command -v chezmoi; then
      log "Installing chezmoi"
+     brew install chezmoi
+
      log "Pulling down dotfiles from Github..."
      sh -c "$(curl -fsLS chezmoi.io/get)" -- init --apply Samueljoli
 fi
@@ -111,6 +108,20 @@ else
      log "Installing Raycast"
      brew install --cask raycast
 fi
+
+# Install last as this ends script execution
+if [ ! -d "$HOME/.oh-my-zsh/" ]; then
+    log "Setting up oh my zsh"
+
+    log "download gruvbox iterm colors"
+    curl --remote-name https://raw.githubusercontent.com/herrbischoff/iterm2-gruvbox/master/gruvbox.itermcolors
+
+    log "download gruvbox oh my zsh theme"
+    curl -L https://raw.githubusercontent.com/sbugzu/gruvbox-zsh/master/gruvbox.zsh-theme > ~/.oh-my-zsh/custom/themes/gruvbox.zsh-theme
+
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+
 
 log "Saving post install document to Desktop"
 
