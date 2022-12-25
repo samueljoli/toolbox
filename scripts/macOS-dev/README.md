@@ -11,7 +11,7 @@ curl --remote-name https://raw.githubusercontent.com/samueljoli/toolbox/main/scr
 
 ## Run
 ```bash
-sh script 2>&1 | tee ~/macOS-dev.log
+sh script.sh 2>&1 | tee ~/macOS-dev.log
 ```
 
 ## What will be installed:
