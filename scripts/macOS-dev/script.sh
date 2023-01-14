@@ -109,6 +109,11 @@ else
      brew install --cask raycast
 fi
 
+if ! command -v fzf; then
+     log "Installing fzf"
+     brew install the_silver_searcher
+fi
+
 # Install last as this ends script execution
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
     log "Setting up oh my zsh"
