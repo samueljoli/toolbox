@@ -92,11 +92,6 @@ if ! command -v bat; then
      brew install bat
 fi
 
-if ! command -v ag; then
-     log "Installing the_silver_searcher"
-     brew install the_silver_searcher
-fi
-
 if ! command -v kitty; then
      log "Installing Kitty"
      curl -L https://sw.kovidgoyal.net/kitty/installer.sh | sh /dev/stdin
@@ -111,8 +106,24 @@ fi
 
 if ! command -v fzf; then
      log "Installing fzf"
+     brew install fzf
+fi
+
+if ! command -v rg; then
+     log "Installing ripgrep"
+     brew install ripgrep
+fi
+
+if ! command -v ag; then
+     log "Installing the_silver_searcher"
      brew install the_silver_searcher
 fi
+
+if ! command -v pyenv; then
+     log "Installing pyenv"
+     brew install pyenv
+fi
+
 
 # Install last as this ends script execution
 if [ ! -d "$HOME/.oh-my-zsh/" ]; then
