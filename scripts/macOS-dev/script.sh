@@ -49,6 +49,11 @@ if ! command -v openssl; then
      brew install openssl
 fi
 
+if ! command -v nvim; then
+     log "Installing neovim"
+     brew install neovim
+fi
+
 if ! command -v chezmoi; then
      log "Installing chezmoi"
      brew install chezmoi
