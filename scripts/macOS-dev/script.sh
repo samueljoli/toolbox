@@ -143,6 +143,9 @@ if [ ! -d "$HOME/.oh-my-zsh/" ]; then
     sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 fi
 
+# Install Fonts
+log "Installing Nerd Fonts"
+cd ~/Library/Fonts && curl -fLo "Symbols-2048-em Nerd Font Complete.ttf" https://github.com/ryanoasis/nerd-fonts/raw/HEAD/patched-fonts/NerdFontsSymbolsOnly/complete/Symbols-2048-em%20Nerd%20Font%20Complete.ttf
 
 log "Saving post install document to Desktop"
 
